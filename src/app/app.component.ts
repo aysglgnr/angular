@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
-  // template: `
-  //   <h1>Welcome to {{ title }}!</h1>
-  //  <router-outlet/> 
-  // `
+  standalone: true,
+  imports: [RouterOutlet , HeaderComponent
+  ],
+  //templateUrl: './app.component.html',
+  //styleUrl: './app.component.scss',
+   template: `
+     <app-header/>
+     <main>
+      <router-outlet />
+    </main>
+   `,
+   styles: [
+    `
+    main {
+      padding: 16px;
+    }
+    `,
+   ],
 })
 export class AppComponent {
   title = 'first-ng-app';
